@@ -32,7 +32,7 @@ module.exports = function(app){
 
   });
 
-  app.delete('/todo' , function(req,res){
+  app.delete('/todo/:item' , function(req,res){
     //delete the requested item from mongodb
     Todo.find({item : req.params.item.replace(/\-/g , ' ')}).remove(function(err, data){
       if(err) throw err;
